@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    background-color: white;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.img-banner {
+    width: 50%;
+}
+.section-wrap {
+    display: flex;
+    flex-direction: row;
+    padding: 0 0 0 0;
+}
+.img-logo {
+    width: 12%;
+    margin-left: 20px;
+}
+.left-main {
+    display: flex;
+    flex-direction: column;
+}
+.login {
+    display: flex;
+    flex-direction: column;
+}
+.vert-line {
+    width: 5px;
+    background-color: black;
+}
+.right-login {
+    width: 65%;
+    padding: 70px;
+    border-left: 2px solid rgb(188, 184, 184);
+}
+input {
+    border: 2px solid rgb(188, 184, 184);
+    border-radius: 15px;
+    width: 94%;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+button {
+    width: 100%;
+    border-radius: 25px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+}
+.gradient-txt {
+    background-image: linear-gradient(to right,#ff5c00,#ff0069,#d300c5);
+    color: transparent;
+    background-clip: text;
+}
+.main-banner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.main-banner p {
+    text-align: center;
+    font-size: 40px;
+}
+.buttons-log {
+    margin-top: 10px;
+}
+.buttons-profile {
+    margin-top: 30px;
+}
+footer {
+    border-top: 2px solid rgb(188, 184, 184);
+    color: rgb(188, 184, 184);
+}
+.footer-links {
+    text-align: center;
+}
+#login-btn {
+    background-color: #A4C2F3;
+    color: #DFE9F9;
+}
+#facebook-login {
+    border: 1px solid rgb(188, 184, 184);
+}
+#new-acc {
+    border: 1px solid #3384E6;
+    color: #3384E6;
+}
+.logo-ctn {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+#meta-logo {
+    width: 65px;
+}
