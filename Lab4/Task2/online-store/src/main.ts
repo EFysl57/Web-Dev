@@ -1,6 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
-import { App } from './app/app';
+import { Component } from '@angular/core';
+import { ProductListComponent } from './app/product.list.component';
 
-bootstrapApplication(App, appConfig)
-  .catch((err) => console.error(err));
+@Component({
+  selector: 'app-root',
+  template: '<app-product-list></app-product-list>',
+  standalone: true,
+  imports: [ProductListComponent]
+})
+export class AppComponent {}
+
+bootstrapApplication(AppComponent)
+  .catch(err => console.error(err));
