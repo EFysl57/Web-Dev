@@ -1,6 +1,6 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { Component } from '@angular/core';
-import { ProductListComponent } from './app/product.list.component';
+import { ProductListComponent } from './app/components/product.list.component';
 
 @Component({
   selector: 'app-root',

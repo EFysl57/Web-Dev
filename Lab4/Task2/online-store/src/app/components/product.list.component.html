@@ -1,20 +1,29 @@
 <div class="product-grid">
   <div class="product-card" *ngFor="let product of products">
-    <!-- Галерея -->
     <div class="gallery">
-      <img class="main-image" [src]="product.images[activeImageIndex[product.id]]" [alt]="product.name" />
+      <img class="main-image" [src]="activeImage[product.id]" [alt]="product.name" />
       <div class="thumbnails">
+        <img 
+          [src]="product.image" 
+          [alt]="product.name + ' main image'"
+          [class.active] = "activeImage[product.id] === product.image"
+          (click) = "setActiveImage(product.id, product.image)"
+          >
+
         <img
           *ngFor="let img of product.images; let i = index"
           [src]="img"
           [alt]="product.name + ' thumbnail'"
-          [class.active]="activeImageIndex[product.id] === i"
-          (click)="setActiveImage(product.id, i)"
+          [class.active]="activeImage[product.id] === img"
+          (click)="setActiveImage(product.id, img)"
         />
       </div>
     </div>
 
+
+    <a href="{{product.link}}">
     <h3>{{ product.name }}</h3>
+    </a>
     <p>{{ product.description }}</p>
     <p class="price">{{ product.price | number }} KZT</p>
     <p class="rating">
