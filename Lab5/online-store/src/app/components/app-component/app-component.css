@@ -1,0 +1,25 @@
+.categories {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+}
+
+.categories button {
+  padding: 10px 20px;
+  border: 1px solid #ddd;
+  background: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.categories button.active {
+  background: #007bff;
+  color: white;
+}
+
+.welcome {
+  text-align: center;
+  margin-top: 50px;
+  color: #555;
+  font-size: 1.2em;
+}

@@ -1,0 +1,18 @@
+<div class="categories">
+    <button *ngFor="let category of categories"
+    (click)="selectCategory(category)"
+    [class.active]="category === selectedCategory">
+        {{category.name}}
+    </button>
+</div>
+
+
+@if (selectedCategory) {
+    <app-product-list
+        [products]="products"
+        (productDeleted)="handleProductDeleted($event)">
+    </app-product-list>
+}
+@else {
+    <p class="welcome">Select a category</p>
+}
