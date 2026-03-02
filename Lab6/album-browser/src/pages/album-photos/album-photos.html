@@ -1,0 +1,16 @@
+<section>
+    <h2>Photos for Album {{albumId}}</h2>
+    <div *ngIf="loading">Loading photos...</div>
+    <div *ngIf="error">{{error}}</div>
+
+    <div *ngIf="!loading && photos.length">
+        <div *ngFor="let photo of photos">
+            <img [src] = "photo?.thumbnailUrl" [alt]="photo.title">
+            <div>{{photo.title}}</div>
+        </div>
+        
+    </div>
+
+    <div *ngIf="!loading && photos.length === 0">No photos found</div>
+    <button (click)="back()">Back</button>
+</section>

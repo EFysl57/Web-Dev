@@ -1,0 +1,25 @@
+<section *ngIf="!loading && album">
+    <h2>Album {{album.id}}</h2>
+
+    <p>User ID: {{album.userId}}</p>
+
+
+    <label>Title:</label>
+
+    <input [(ngModel)]="titleEdit"/>
+
+    <div>
+        <button (click)="save()" [disabled]="saving">
+            Save
+        </button>
+
+        <button (click)="viewPhotos()">View Photos</button>
+        
+
+        <button (click)="back()">Back</button>
+    </div>
+
+
+</section>
+<div NgIf="loading">Loading...</div>
+<div NgIf="error">{{error}}</div>

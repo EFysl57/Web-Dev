@@ -1,0 +1,28 @@
+
+
+.nav {
+    display: flex;
+    padding: 10px;
+    margin: 0;
+    background: rgb(231, 230, 230);
+    border-bottom: 1px solid black;
+    border-radius: 7px;
+}
+
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    margin-left: 20px;
+    padding: 10px;
+    border-radius: 7px;
+}
+
+.nav a.active {
+    background: rgb(42, 62, 117);
+    color: white;
+}
+
+.container {
+    padding: 30px;
+}

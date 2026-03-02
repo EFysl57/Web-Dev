@@ -1,0 +1,18 @@
+<section>
+    <h2>Albums</h2>
+    <div *ngIf="loading">Loading album...</div>
+    <div *ngIf="error">{{error}}</div>
+
+    <ul *ngIf="!loading && albums.length">
+        <li *ngFor="let album of albums">
+            <div (click)="open(album)">
+                <p>{{album.id}} - {{album.title}}</p>
+            </div>
+            <button (click)="delete(album)">Delete</button>
+
+        </li>
+    </ul>
+
+    <div *ngIf="!loading && albums.length === 0">No albums found</div>
+
+</section>
