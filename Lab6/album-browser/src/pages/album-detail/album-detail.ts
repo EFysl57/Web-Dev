@@ -4,6 +4,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AlbumService } from '../../services/album.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
@@ -20,7 +21,7 @@ export class AlbumDetail implements OnInit {
   saving = false;
   error = '';
   
-  constructor(private route: ActivatedRoute, private router: Router, private albumService: AlbumService) {
+  constructor(private route: ActivatedRoute, private router: Router, private albumService: AlbumService, private cdr: ChangeDetectorRef) {
 
   }
   
@@ -38,7 +39,7 @@ export class AlbumDetail implements OnInit {
   load(id: number) {
     this.loading = true;
     this.albumService.getAlbum(id).subscribe({
-      next: (a) => {this.album = a; this.titleEdit = a.title; this.loading = false;}, 
+      next: (a) => {this.album = a; this.titleEdit = a.title; this.loading = false; this.cdr.detectChanges();}, 
       error: () => {this.error = 'Error. Failed to load album'; this.loading = false; }
     });
   }
@@ -53,8 +54,8 @@ export class AlbumDetail implements OnInit {
 
     const updated = {...this.album, title: this.titleEdit};
     this.albumService.updateAlbum(updated).subscribe({
-      next: (a) => {
-        this.album = a;
+      next: () => {
+        this.album = updated;
         this.saving = false;
         alert('Saved!');
       },

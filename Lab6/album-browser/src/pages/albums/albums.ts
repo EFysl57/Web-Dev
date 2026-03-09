@@ -55,8 +55,14 @@ export class Albums implements OnInit{
       error: () => alert('Delete failed')
     })
 
+    
   }
-
+  renameSmth(id: number, title: string) {
+      const albumNew = this.albums.find(album => album.id === id);
+      if (albumNew) {
+        albumNew.title = title;
+      }
+  }
 
 
 }
