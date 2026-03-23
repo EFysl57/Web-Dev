@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../components/services/product.service';
 import { CommonModule } from '@angular/common';
@@ -12,12 +12,13 @@ import { CommonModule } from '@angular/common';
 export class ProductDetail implements OnInit {
 product: any;
 
-  constructor(private route: ActivatedRoute, private api: ProductService) {}
+  constructor(private route: ActivatedRoute, private api: ProductService, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.api.getProduct(Number(id)).subscribe(data => {
       this.product = data;
+      this.cd.detectChanges();
     });
   }
 }

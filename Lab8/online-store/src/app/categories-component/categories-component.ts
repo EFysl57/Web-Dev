@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { ProductService } from '../components/services/product.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -12,13 +12,14 @@ import { CommonModule } from '@angular/common';
 export class CategoriesComponent implements OnInit {
   categories: any[] = [];
 
-  constructor(private api: ProductService) {
+  constructor(private api: ProductService, private cd: ChangeDetectorRef) {
 
   }
 
   ngOnInit() {
     this.api.getCategories().subscribe(data => {
       this.categories = data;
+      this.cd.detectChanges();
     });
   }
 

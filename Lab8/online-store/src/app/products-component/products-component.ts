@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ProductService } from '../components/services/product.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
@@ -13,7 +13,7 @@ export class ProductsComponent {
 
   products: any[] = [];
 
-  constructor(private api: ProductService, private route: ActivatedRoute) {}
+  constructor(private api: ProductService, private route: ActivatedRoute, private cd: ChangeDetectorRef) {}
 
   ngOnInit() {
 
@@ -27,6 +27,7 @@ export class ProductsComponent {
   loadData() {
       this.api.getProducts().subscribe(data => {
         this.products = data;
+        this.cd.detectChanges();
     });
   }
 
