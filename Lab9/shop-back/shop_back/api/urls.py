@@ -7,6 +7,7 @@ from .views import CategoryViewSet, ProductViewSet
 router = DefaultRouter()
 router.register('categories', CategoryViewSet)
 router.register('products', ProductViewSet)
+#router.register('categories/<int:id>/products/', views.category_products)
 urlpatterns = router.urls
 
 
